@@ -7,6 +7,7 @@
         {% endif %}
     </head>
     <body>
+        {% include "navbar.html" %}
         {% block content %}  
         <h1>Photos for {{date|date:"1 d-FY}}</h1>
         {% endblock %}
