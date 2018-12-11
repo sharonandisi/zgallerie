@@ -5,7 +5,7 @@ from django.http import HttpResponse,Http404
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('welcome.html')
+    return render( request, 'welcome.html')
 
 def photos_of_the_day(request):
     date = dt.date.today()
@@ -31,7 +31,7 @@ def convert_dates(dates):
 def archived_photos(request,past_date):
     try:
     #converts data from the string Url
-    date = dt.datetime.strptime(past_date, '%Y-%m-%d').date()
+        date = dt.datetime.strptime(past_date, '%Y-%m-%d').date()
     except ValueError:
         # Raise 404 error when ValueError is thrown raise Http404()
         assert False
@@ -39,4 +39,4 @@ def archived_photos(request,past_date):
         return redirect(photos_of_the_day)
     
     
-    return render(reuest, 'all-photos/archived-photos.html', {"date": date})
+    return render(request, 'all-photos/archived-photos.html', {"date": date})

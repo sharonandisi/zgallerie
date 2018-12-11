@@ -1,4 +1,4 @@
-#!/home/sharon/Documents/python/Django/portfolio/virtual/bin/python3.6
+#!/home/sharon/Documents/python/Django/zgallerie/virtual/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
