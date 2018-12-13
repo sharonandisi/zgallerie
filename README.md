@@ -77,6 +77,12 @@ CREATE DATABASE zgallerie;
 ```bash
 python3.6 manage.py makemigrations && python3.6 manage.py migrate
 ```
+#### Django admin
+```bash
+EMAIL: sharonandisi.sa@gmail.com
+PASSWORD: sharon123
+```
+
 
 #### Run the app
 ```bash
