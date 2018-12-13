@@ -13,6 +13,7 @@ def archived_photos(request,past_date):
     except ValueError:
         # Raise 404 error when ValueError is thrown raise Http404()
         assert False
+
     if date == dt.date.today():
         return redirect(photos_today)
     
@@ -42,4 +43,4 @@ def photo(request,photo_id):
         photo = Photo.objects.get(id = photo_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"all-news/photo.html", {"photo":photo})
+    return render(request,"all-photos/photo.html", {"photo":photo})

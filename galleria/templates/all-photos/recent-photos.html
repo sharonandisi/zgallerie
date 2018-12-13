@@ -9,16 +9,59 @@
     {% for photos_item in photos %}
 
     <div class="row">
-        <!-- displaying News articles -->
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <h2 class="text-center"> {{ photos_item.title }} </h2>
+            <p>{{photos_item.post}}</p>
         </div>
-
-        <!--Display news Article images  -->
+        
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{photos_item.photo_image.url}}" class="img-responsive" alt="Image">
+            <img src="{{photos_item.photo_image.url}}" class="img-responsive" alt="Image" data-toggle="modal" data-target="#{{photos_item.id}}">
         </div>
-
+        <!-- Modal -->
+        <div id="{{photos_item.id}}" class="modal fade" role="dialog">
+            <div class="modal-dialog image">
+        
+                <!-- Modal content-->
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{photos_item.title}}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{photos_item.photo_image.url}}" alt="" class="img-responsive">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{photo_image.id}}-info"><i
+                                class="fas fa-info-circle"></i> Info</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="border: 0.5px solid #d3d3d3;">Close</button>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div id="{{photo_image.id}}-info" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+        
+                <!-- Modal content-->
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{photos_item.title}} Caption</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{photos_item.post}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <input class="form-control input-lg" type="text" value="{{photo.photo_image.url}}"
+                            id="{{photo_image.id}}-url">
+                        <button class="btn btn-primary" onclick="copyToClipboard('{{photo_image.id}}.url')">Copy</button>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
     </div>
 
     {% empty %}

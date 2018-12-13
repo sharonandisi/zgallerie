@@ -33,6 +33,7 @@ class Photo(models.Model):
         today = dt.date.today()
         photos = cls.objects.filter(pub_date__date = today)
         return photos
+    @classmethod
     def days_photos(cls,date):
         photos = cls.objects.filter(pub_date__date = date)
         return photos
